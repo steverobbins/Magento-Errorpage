@@ -1,0 +1,60 @@
+<?php
+/**
+ * Custom error/maintenance page
+ * 
+ * @category  Steverobbins
+ * @package   Steverobbins_Staticversion
+ * @author    Steve Robbins <steven.j.robbins@gmail.com>
+ * @copyright Copyright (c) 2014 Steve Robbins (https://github.com/steverobbins)
+ * @license   http://creativecommons.org/licenses/by/3.0/deed.en_US Creative Commons Attribution 3.0 Unported License
+ */
+$_hide = $this->showSentMsg || $this->showErrorMsg ? ' style="display: none"' : '';
+?>
+<h1<?php echo $_hide ?>>Oops!  Something went wrong...</h1>
+<?php if ($this->showSentMsg): ?>
+<p class="success">Your message was submitted and will be responded as soon as possible. Thank you for reporting.</p>
+<?php endif; ?>
+<?php if ($this->showSendForm): ?>
+<p>Looks like we're having some technical issues.  Please try your request again.</p>
+<p>If you continue to experience errors, please contact us using the form below.</p>
+<?php if ($this->showErrorMsg): ?>
+<p class="error">Please fill all required fields with valid information</p>
+<?php endif; ?>
+<form action="<?php echo "{$this->getBaseUrl(true)}errors/report.php?id={$this->reportId}" ?>" method="post" id="form-validate">
+    <div class="field">
+        <label for="firstname" class="required"><em>*</em> First Name</label>
+        <input type="text" name="firstname" id="firstname" value="<?php echo $this->postData['firstName'] ?>" title="First Name" class="required-entry input-text" />
+    </div>
+    <div class="field">
+        <label for="lastname" class="required"><em>*</em> Last Name </label>
+        <input type="text" name="lastname" id="lastname" value="<?php echo $this->postData['lastName'] ?>" title="Last Name" class="required-entry input-text" />
+    </div>
+    <div class="field">
+        <label for="firstname" class="required"><em>*</em> Email Address</label>
+        <input type="text" name="email" id="email_address" value="<?php echo $this->postData['email'] ?>" title="Email Address" class="validate-email required-entry input-text" />
+    </div>
+    <div class="field">
+        <label for="firstname">Telephone</label>
+        <input type="text" name="telephone" id="telephone" value="<?php echo $this->postData['telephone'] ?>" title="Telephone" class="input-text" />
+    </div>
+    <div class="field input-box">
+        <label for="firstname">Comment</label>
+        <textarea name="comment"><?php echo $this->postData['comment'] ?></textarea>
+    </div>
+    <p>
+        <button name="submit" type="submit">Submit</button>
+    </p>
+    <div style="clear:both"></div>
+</form>
+<?php endif; ?>
+
+<?php if ($this->reportAction == 'print'): ?>
+<pre><?php echo $this->reportData[0] ?><br />
+<strong>Trace:</strong>
+<?php echo htmlspecialchars($this->reportData[1]) ?><br />
+</pre>
+<?php endif; ?>
+
+<?php if ($this->reportId && $this->reportUrl): ?>
+<p<?php echo $_hide ?>>If you happen to see an administrator, tell them <a href="<?php echo htmlspecialchars($this->reportUrl) ?>"><?php echo $this->reportId ?></a>.  They'll know what it means.</p>
+<?php endif; ?>

@@ -1,0 +1,35 @@
+<?php
+/**
+ * Custom error/maintenance page
+ * 
+ * @category  Steverobbins
+ * @package   Steverobbins_Staticversion
+ * @author    Steve Robbins <steven.j.robbins@gmail.com>
+ * @copyright Copyright (c) 2014 Steve Robbins (https://github.com/steverobbins)
+ * @license   http://creativecommons.org/licenses/by/3.0/deed.en_US Creative Commons Attribution 3.0 Unported License
+ */
+?>
+<!DOCTYPE html>
+<html>
+    <head>
+        <title><?php echo $this->pageTitle?></title>
+        <base href="<?php echo $this->getSkinUrl()?>" />
+        <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+        <meta name="description" content="" />
+        <meta name="keywords" content="" />
+        <meta name="robots" content="*" />
+        <link rel="stylesheet" href="css/styles.css" type="text/css" />
+        <link rel="icon" href="<?php echo $this->getBaseUrl()?>favicon.ico" type="image/x-icon" />
+        <link rel="shortcut icon" href="<?php echo $this->getBaseUrl()?>favicon.ico" type="image/x-icon" />
+    </head>
+    <body>
+        <div class="wrapper">
+            <div class="page">
+                <?php require_once $contentTemplate; ?>
+                <div>
+                    <a href="<?php echo $this->getBaseUrl()?>" title="Store Home" class="logo">< Back to Store Home</a>
+                </div>
+            </div>
+        </div>
+    </body>
+</html>
