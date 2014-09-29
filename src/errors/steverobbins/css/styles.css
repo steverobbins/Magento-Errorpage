@@ -17,6 +17,7 @@ pre {
     background: #333;
     color: #fff;
     border-radius: 10px;
+    -webkit-border-radius: 10px;
     padding: 15px;
     border: 1px solid #000;
 }
@@ -25,6 +26,7 @@ form {
     background: #fff;
     padding: 20px;
     border-radius: 15px;
+    -webkit-border-radius: 15px;
 }
 
 form .field + .field {
@@ -66,13 +68,16 @@ form button {
     background: #eee;
     padding: 30px;
     border-radius: 10px;
+    -webkit-border-radius: 10px;
     box-shadow: 0px 0px 4px #555;
+    -webkit-box-shadow: 0px 0px 4px #555;
 }
 
 .error, .success {
     background: rgb(255, 255, 174);
     padding: 10px;
     border-radius: 10px;
+    -webkit-border-radius: 10px;
     border: 1px solid red;
 }
 

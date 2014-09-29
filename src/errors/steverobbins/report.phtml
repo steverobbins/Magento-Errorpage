@@ -8,7 +8,7 @@
  * @copyright Copyright (c) 2014 Steve Robbins (https://github.com/steverobbins)
  * @license   http://creativecommons.org/licenses/by/3.0/deed.en_US Creative Commons Attribution 3.0 Unported License
  */
-$_hide = $this->showSentMsg || $this->showErrorMsg ? ' style="display: none"' : '';
+$_hide = $this->showSentMsg ? ' style="display: none"' : '';
 ?>
 <h1<?php echo $_hide ?>>Oops!  Something went wrong...</h1>
 <?php if ($this->showSentMsg): ?>
