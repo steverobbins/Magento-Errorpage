@@ -5,6 +5,8 @@ Magento Custom Error Page
 
 A simple, responsive error and maintenance page for Magento.
 
+![Report Page](http://i.imgur.com/iKjRtjc.png)
+
 # Installation
 
 * Copy the contents of `src/` to your Magento installation
